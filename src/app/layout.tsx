@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AppShell from "@/components/layout/AppShell/AppShell";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -23,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="ja" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }
