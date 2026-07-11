@@ -1,0 +1,6 @@
+import React from "react";
+import styles from "./Header.modules.scss";
+
+export default function Header() {
+  return <div></div>;
+}
