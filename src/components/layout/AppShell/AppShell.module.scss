@@ -1,0 +1,16 @@
+.appShell {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+  background: #f7f4ef;
+}
+
+.main {
+  padding: 32px;
+}
+
+@media (max-width: 768px) {
+  .appShell {
+    grid-template-columns: 1fr;
+  }
+}
