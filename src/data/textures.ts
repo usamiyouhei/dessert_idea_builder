@@ -1,20 +1,24 @@
 import type { DessertOption } from "./dessertTypes";
 
-export const temperatures: DessertOption[] = [
+export const textures: DessertOption[] = [
   {
-    value: "cold",
-    label: "冷たい",
+    value: "crispy",
+    label: "サクサク",
   },
   {
-    value: "warm",
-    label: "温かい",
+    value: "fluffy",
+    label: "ふわふわ",
   },
   {
-    value: "hot",
-    label: "熱々",
+    value: "creamy",
+    label: "なめらか",
   },
   {
-    value: "room-temperature",
-    label: "常温",
+    value: "chewy",
+    label: "もちもち",
+  },
+  {
+    value: "crunchy",
+    label: "ザクザク",
   },
 ];
