@@ -51,5 +51,13 @@ export default function HomePage() {
   const handleToggleDecoration = (value: string) => {
     toggleOption(value, setSelectedDecorations);
   };
+
+  const handleBack = () => {
+    setStep((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setStep((prev) => Math.min(prev + 1, 5));
+  };
   return <BuilderView step={step} />;
 }
