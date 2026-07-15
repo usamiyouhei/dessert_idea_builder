@@ -16,5 +16,16 @@ export default function HomePage() {
     [],
   );
   const [selectedDecorations, setSelectedDecorations] = useState<string[]>([]);
-  return <BuilderView />;
+
+  const toggleSelection = (
+    value: string,
+    setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>,
+  ) => {
+    setSelectedValues((prev) =>
+      prev.includes(value)
+        ? prev.filter((selectedValue) => selectedValue !== value)
+        : [...prev, value],
+    );
+  };
+  return <BuilderView step={step} />;
 }
