@@ -17,7 +17,7 @@ export default function HomePage() {
   );
   const [selectedDecorations, setSelectedDecorations] = useState<string[]>([]);
 
-  const toggleSelection = (
+  const toggleOption = (
     value: string,
     setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>,
   ) => {
@@ -26,6 +26,30 @@ export default function HomePage() {
         ? prev.filter((selectedValue) => selectedValue !== value)
         : [...prev, value],
     );
+  };
+
+  const handleToggleDessertType = (value: string) => {
+    toggleOption(value, setSelectedDessertTypes);
+  };
+
+  const handleToggleFlavor = (value: string) => {
+    toggleOption(value, setSelectedFlavors);
+  };
+
+  const handleToggleShape = (value: string) => {
+    toggleOption(value, setSelectedShapes);
+  };
+
+  const handleToggleTexture = (value: string) => {
+    toggleOption(value, setSelectedTextures);
+  };
+
+  const handleToggleTemperature = (value: string) => {
+    toggleOption(value, setSelectedTemperatures);
+  };
+
+  const handleToggleDecoration = (value: string) => {
+    toggleOption(value, setSelectedDecorations);
   };
   return <BuilderView step={step} />;
 }
