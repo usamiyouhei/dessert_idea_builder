@@ -1,7 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 type BuilderViewProps = {
   step: number;
+  children: ReactNode;
 
   selectedDessertTypes: string[];
   selectedFlavors: string[];
@@ -9,16 +10,26 @@ type BuilderViewProps = {
   selectedTextures: string[];
   selectedTemperatures: string[];
   selectedDecorations: string[];
+
+  onBack: () => void;
+  onNext: () => void;
 };
 
 export default function BuilderView({
   step,
+  children,
   selectedDessertTypes,
   selectedFlavors,
   selectedShapes,
   selectedTextures,
   selectedTemperatures,
   selectedDecorations,
+  onBack,
+  onNext,
 }: BuilderViewProps) {
-  return <div>Builder View: Step {step + 1}</div>;
+  return (
+    <section>
+      <div>Builder View: Step {step + 1}</div>
+    </section>
+  );
 }

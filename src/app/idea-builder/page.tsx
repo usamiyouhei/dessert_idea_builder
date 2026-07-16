@@ -8,6 +8,7 @@ import ShapeStep from "@/components/builder/ShapeStep";
 import TextureStep from "@/components/builder/TextureStep";
 import TemperatureStep from "@/components/builder/TemperatureStep";
 import DecorationStep from "@/components/builder/DecorationStep";
+import AppShell from "@/components/layout/AppShell/AppShell";
 
 export default function HomePage() {
   const [step, setStep] = useState(0);
@@ -117,5 +118,10 @@ export default function HomePage() {
         );
     }
   };
-  return <BuilderView step={step} />;
+  return (
+    <AppShell>
+      <BuilderView step={step} />
+      {renderStep()}
+    </AppShell>
+  );
 }
