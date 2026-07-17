@@ -30,6 +30,7 @@ export default function BuilderView({
   return (
     <section>
       <div>Builder View: Step {step + 1}</div>
+      <div>{children}</div>
     </section>
   );
 }

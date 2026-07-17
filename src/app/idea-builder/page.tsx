@@ -119,9 +119,8 @@ export default function HomePage() {
     }
   };
   return (
-    <AppShell>
-      <BuilderView step={step} />
+    <BuilderView step={step} onBack={handleBack} onNext={handleNext}>
       {renderStep()}
-    </AppShell>
+    </BuilderView>
   );
 }
