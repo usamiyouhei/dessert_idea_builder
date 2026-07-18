@@ -9,6 +9,7 @@ import TextureStep from "@/components/builder/TextureStep";
 import TemperatureStep from "@/components/builder/TemperatureStep";
 import DecorationStep from "@/components/builder/DecorationStep";
 import AppShell from "@/components/layout/AppShell/AppShell";
+import { DessertIdea } from "@/types/dessert";
 
 export default function HomePage() {
   const [step, setStep] = useState(0);
@@ -23,6 +24,8 @@ export default function HomePage() {
     [],
   );
   const [selectedDecorations, setSelectedDecorations] = useState<string[]>([]);
+
+  const [result, setResult] = useState<DessertIdea | null>(null);
 
   const toggleOption = (
     value: string,
@@ -118,9 +121,24 @@ export default function HomePage() {
         );
     }
   };
+
+  const handleCreateResult = () => {
+    const newIdea: DessertIdea = {
+      id: crypto.randomUUID(),
+
+      dessertTypes: selectedDessertTypes,
+      flavors: selectedFlavors,
+      shapes: selectedShapes,
+      textures: selectedTextures,
+      temperatures: selectedTemperatures,
+      decorations: selectedDecorations,
+    };
+    setResult(newIdea);
+  };
+
   return (
     <BuilderView step={step} onBack={handleBack} onNext={handleNext}>
-      {renderStep()}
+      {result ? <pre>{JSON.stringify(result, null, 2)}</pre> : renderStep()}
     </BuilderView>
   );
 }
