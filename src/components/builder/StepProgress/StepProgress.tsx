@@ -1,4 +1,5 @@
-import React from "react";
+import styles from "./StepProgress.module.scss";
+
 type StepProgressProps = {
   currentStep: number;
   totalStep: number;
@@ -9,8 +10,8 @@ export default function StepProgress({
   totalStep,
 }: StepProgressProps) {
   return (
-    <div>
-      <p>
+    <div className={styles.progressArea}>
+      <p className={styles.progressText}>
         Step {currentStep + 1} / {totalStep}
       </p>
       <progress value={currentStep + 1} max={totalStep} />
