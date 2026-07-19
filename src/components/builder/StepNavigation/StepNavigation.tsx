@@ -21,7 +21,7 @@ export default function StepNavigation({
         disabled={currentStep === 0}
         className={styles.backButton}
       >
-        Back
+        戻る
       </button>
       <button
         type="button"
@@ -29,7 +29,7 @@ export default function StepNavigation({
         disabled={currentStep === totalSteps - 1}
         className={styles.nextButton}
       >
-        Next
+        {currentStep === totalSteps - 1 ? "結果を見る" : "次へ"}
       </button>
     </div>
   );
