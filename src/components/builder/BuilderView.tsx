@@ -37,12 +37,15 @@ export default function BuilderView({
 
       <div className={styles.card}>
         <div className={styles.content}>{children}</div>
-        <StepNavigation
-          currentStep={step}
-          totalSteps={totalSteps}
-          onBack={onBack}
-          onNext={onNext}
-        />
+
+        <div className={styles.actions}>
+          <StepNavigation
+            currentStep={step}
+            totalSteps={totalSteps}
+            onBack={onBack}
+            onNext={onNext}
+          />
+        </div>
       </div>
     </section>
   );

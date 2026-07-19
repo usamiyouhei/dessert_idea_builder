@@ -14,7 +14,11 @@ export default function StepProgress({
       <p className={styles.progressText}>
         Step {currentStep + 1} / {totalStep}
       </p>
-      <progress value={currentStep + 1} max={totalStep} />
+      <progress
+        className={styles.progress}
+        value={currentStep + 1}
+        max={totalStep}
+      />
     </div>
   );
 }
