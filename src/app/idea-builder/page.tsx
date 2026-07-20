@@ -26,6 +26,7 @@ export default function HomePage() {
   const [selectedDecorations, setSelectedDecorations] = useState<string[]>([]);
 
   const [result, setResult] = useState<DessertIdea | null>(null);
+  const [showResult, setShowResult] = useState(false);
 
   const toggleOption = (
     value: string,
@@ -68,6 +69,10 @@ export default function HomePage() {
 
   const handleNext = () => {
     setStep((prev) => Math.min(prev + 1, 5));
+  };
+
+  const handleShowResult = () => {
+    setShowResult(true);
   };
 
   const renderStep = () => {
@@ -132,13 +137,30 @@ export default function HomePage() {
       textures: selectedTextures,
       temperatures: selectedTemperatures,
       decorations: selectedDecorations,
+      title: "",
+      concept: "",
+      aiPrompt: "",
+      imageUrl: "",
+      favorite: false,
+      createdAt: "",
     };
     setResult(newIdea);
   };
 
   return (
-    <BuilderView step={step} onBack={handleBack} onNext={handleNext}>
-      {result ? <pre>{JSON.stringify(result, null, 2)}</pre> : renderStep()}
-    </BuilderView>
+    <main>
+      {showResult ? (
+        <div>結果画面</div>
+      ) : (
+        <BuilderView
+          step={step}
+          onBack={handleBack}
+          onNext={handleNext}
+          onShowResult={handleShowResult}
+        >
+          {result ? <pre>{JSON.stringify(result, null, 2)}</pre> : renderStep()}
+        </BuilderView>
+      )}
+    </main>
   );
 }

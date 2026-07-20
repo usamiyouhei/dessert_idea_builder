@@ -23,7 +23,7 @@ export default function StepNavigation({
       <button
         type="button"
         onClick={onBack}
-        disabled={isLastStep}
+        disabled={isFirstStep}
         className={styles.backButton}
       >
         戻る
