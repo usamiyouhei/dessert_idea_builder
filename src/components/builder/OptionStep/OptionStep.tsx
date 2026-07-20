@@ -33,7 +33,7 @@ export default function OptionStep({
           <OptionCard
             key={option.value}
             label={option.label}
-            selected={selectedValues.includes(option.value)}
+            isSelected={selectedValues.includes(option.value)}
             onClick={() => onToggle(option.value)}
           />
         ))}

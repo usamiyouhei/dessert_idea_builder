@@ -1,0 +1,63 @@
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 16px 18px;
+  color: #3f3934;
+  background-color: #faf9f7;
+  border: 1px solid #d9d3cc;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card:hover {
+  background-color: #fff;
+  border-color: #a99f95;
+  box-shadow: 0 6px 18px rgb(40 35 30 / 8%);
+  transform: translateY(-2px);
+}
+
+.card:focus-visible {
+  outline: 3px solid rgb(120 105 90 / 22%);
+  outline-offset: 3px;
+}
+
+.selected {
+  color: #fff;
+  border-color: #3f3934;
+  background-color: #3f3934;
+  box-shadow: 0 8px 20px rgb(40 35 30 / 18%);
+}
+
+.selected:hover {
+  background-color: #2e2a27;
+  border-color: #2e2a27;
+}
+
+.check {
+  display: grid;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-left: 10px;
+  place-items: center;
+  border: 1px solid #c9c1b9;
+  border-radius: 50%;
+  font-size: 13px;
+}
+
+.selected .check {
+  color: #3f3934;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
