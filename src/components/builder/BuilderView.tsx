@@ -16,6 +16,7 @@ type BuilderViewProps = {
 
   onBack: () => void;
   onNext: () => void;
+  onShowResult: () => void;
 };
 
 export default function BuilderView({
@@ -29,6 +30,7 @@ export default function BuilderView({
   // selectedDecorations,
   onBack,
   onNext,
+  onShowResult,
 }: BuilderViewProps) {
   const totalSteps = 6;
   return (
@@ -44,6 +46,7 @@ export default function BuilderView({
             totalSteps={totalSteps}
             onBack={onBack}
             onNext={onNext}
+            onShowResult={onShowResult}
           />
         </div>
       </div>

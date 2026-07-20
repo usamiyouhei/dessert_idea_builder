@@ -5,6 +5,7 @@ type StepNavigationProps = {
   totalSteps: number;
   onBack: () => void;
   onNext: () => void;
+  onShowResult: () => void;
 };
 
 export default function StepNavigation({
@@ -12,24 +13,28 @@ export default function StepNavigation({
   totalSteps,
   onBack,
   onNext,
+  onShowResult,
 }: StepNavigationProps) {
+  const isFirstStep = currentStep === 0;
+  const isLastStep = currentStep === totalSteps - 1;
+
   return (
     <div className={styles.navigation}>
       <button
         type="button"
         onClick={onBack}
-        disabled={currentStep === 0}
+        disabled={isLastStep}
         className={styles.backButton}
       >
         戻る
       </button>
       <button
         type="button"
-        onClick={onNext}
-        disabled={currentStep === totalSteps - 1}
+        onClick={isLastStep ? onShowResult : onNext}
+        // disabled={currentStep === totalSteps - 1}
         className={styles.nextButton}
       >
-        {currentStep === totalSteps - 1 ? "結果を見る" : "次へ"}
+        {isLastStep ? "結果を見る" : "次へ"}
       </button>
     </div>
   );
