@@ -1,20 +1,26 @@
-import React from "react";
-
+import styles from "./OptionCard.module.scss";
 type OptionCardProps = {
   label: string;
-  selected: boolean;
+  isSelected: boolean;
   onClick: () => void;
 };
 
 export default function OptionCard({
   label,
-  selected,
+  isSelected,
   onClick,
 }: OptionCardProps) {
   return (
-    <button type="button" aria-pressed={selected} onClick={onClick}>
-      {label}
-      {selected && <span>✓</span>}
+    <button
+      type="button"
+      className={`${styles.card} ${isSelected ? styles.selected : ""}`}
+      aria-pressed={isSelected}
+      onClick={onClick}
+    >
+      <span>{label}</span>
+      <span className={styles.check} aria-hidden="true">
+        {isSelected ? "✓" : ""}
+      </span>
     </button>
   );
 }
