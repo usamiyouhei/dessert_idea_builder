@@ -1,3 +1,11 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 28px;
+  // border-top: 1px solid #e4dfd9;
+}
 .backButton,
 .nextButton {
   min-width: 120px;
