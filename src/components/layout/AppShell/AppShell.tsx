@@ -5,15 +5,32 @@ import Header from "../Header/Header";
 
 type AppShellProps = {
   children: ReactNode;
+  title: string;
+  description?: string;
+  currentStep: number;
+  totalSteps: number;
+  onNewIdea: () => void;
 };
 
-export default function AppShell({ children }: AppShellProps) {
+export default function AppShell({
+  children,
+  title,
+  description,
+  currentStep,
+  totalSteps,
+  onNewIdea,
+}: AppShellProps) {
   return (
     <div className={styles.appShell}>
-      <Sidebar />
+      <Sidebar onNewidea={onNewIdea} />
 
-      <div className={styles.content}>
-        <Header />
+      <div className={styles.mainArea}>
+        <Header
+          title={title}
+          description={description}
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+        />
 
         <main className={styles.main}>{children}</main>
       </div>

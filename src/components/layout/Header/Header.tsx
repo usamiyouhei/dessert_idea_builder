@@ -4,8 +4,8 @@ import styles from "./Header.module.scss";
 type HeaderProps = {
   title: string;
   description?: string;
-  currentStep?: string;
-  totalSteps?: string;
+  currentStep?: number;
+  totalSteps?: number;
 };
 
 export default function Header({
