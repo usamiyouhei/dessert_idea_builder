@@ -145,6 +145,8 @@ export default function HomePage() {
       createdAt: "",
     };
     setResult(newIdea);
+    localStorage.setItem("currentIdea", JSON.stringify(newIdea));
+    router.push("/result");
   };
 
   return (
