@@ -10,8 +10,10 @@ import TemperatureStep from "@/components/builder/TemperatureStep";
 import DecorationStep from "@/components/builder/DecorationStep";
 import AppShell from "@/components/layout/AppShell/AppShell";
 import { DessertIdea } from "@/types/dessert";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const router = useRouter();
   const [step, setStep] = useState(0);
 
   const [selectedDessertTypes, setSelectedDessertTypes] = useState<string[]>(
@@ -24,9 +26,6 @@ export default function HomePage() {
     [],
   );
   const [selectedDecorations, setSelectedDecorations] = useState<string[]>([]);
-
-  const [result, setResult] = useState<DessertIdea | null>(null);
-  const [showResult, setShowResult] = useState(false);
 
   const toggleOption = (
     value: string,
@@ -69,10 +68,6 @@ export default function HomePage() {
 
   const handleNext = () => {
     setStep((prev) => Math.min(prev + 1, 5));
-  };
-
-  const handleShowResult = () => {
-    setShowResult(true);
   };
 
   const renderStep = () => {
@@ -144,25 +139,20 @@ export default function HomePage() {
       favorite: false,
       createdAt: "",
     };
-    setResult(newIdea);
     localStorage.setItem("currentIdea", JSON.stringify(newIdea));
     router.push("/result");
   };
 
   return (
     <main>
-      {showResult ? (
-        <div>結果画面</div>
-      ) : (
-        <BuilderView
-          step={step}
-          onBack={handleBack}
-          onNext={handleNext}
-          onShowResult={handleShowResult}
-        >
-          {result ? <pre>{JSON.stringify(result, null, 2)}</pre> : renderStep()}
-        </BuilderView>
-      )}
+      <BuilderView
+        step={step}
+        onBack={handleBack}
+        onNext={handleNext}
+        onShowResult={handleCreateResult}
+      >
+        {renderStep()}
+      </BuilderView>
     </main>
   );
 }
