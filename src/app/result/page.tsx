@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./result.module.scss";
 import { DessertIdea } from "@/types/dessert";
 
+const SAVED_IDEAS_KEY = "dessert-ideas";
+const CURRENT_IDEA_KEY = "currentIdea";
+
 export default function ResultPage() {
   const [idea] = useState<DessertIdea | null>(() => {
     const data = localStorage.getItem("currentIdea");
@@ -17,6 +20,9 @@ export default function ResultPage() {
       return null;
     }
   });
+
+  const [title, setTitle] = useState(() => idea?.title ?? "");
+  const [saveMessage, setSaveMessage] = useState("");
 
   if (!idea) {
     return (
