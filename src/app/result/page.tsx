@@ -2,11 +2,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./result.module.scss";
 import { DessertIdea } from "@/types/dessert";
+import { useRouter } from "next/navigation";
 
 const SAVED_IDEAS_KEY = "dessert-ideas";
 const CURRENT_IDEA_KEY = "currentIdea";
 
 export default function ResultPage() {
+  const router = useRouter();
+
   const [idea] = useState<DessertIdea | null>(() => {
     const data = localStorage.getItem("currentIdea");
 
@@ -24,10 +27,39 @@ export default function ResultPage() {
   const [title, setTitle] = useState(() => idea?.title ?? "");
   const [saveMessage, setSaveMessage] = useState("");
 
+  const handleSave = () => {
+    if (!idea) {
+      return;
+    }
+
+    if (!title.trim()) {
+      setSaveMessage("アイデアタイトルを入力してください。");
+      return;
+    }
+
+    const savedIdea: DessertIdea = {
+      ...idea,
+      title: title.trim(),
+      createdAt: idea.createdAt || new Date().toISOString(),
+    };
+  };
+
   if (!idea) {
     return (
-      <main>
-        <p>結果がありません。</p>
+      <main className={styles.page}>
+        <div className={styles.empty}>
+          <h1 className={styles.emptyTitle}>結果がありません。</h1>
+
+          <p className={styles.emptyText}>
+            デザートアイデアを作成してから結果を表示してください。
+          </p>
+
+          <button
+            className={styles.primaryButton}
+            type="button"
+            onClick={() => router.push("/idea-builder")}
+          ></button>
+        </div>
       </main>
     );
   }
