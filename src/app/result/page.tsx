@@ -32,16 +32,31 @@ export default function ResultPage() {
       return;
     }
 
-    if (!title.trim()) {
+    const trimmedTitle = title.trim();
+
+    if (!trimmedTitle) {
       setSaveMessage("アイデアタイトルを入力してください。");
       return;
     }
 
     const savedIdea: DessertIdea = {
       ...idea,
-      title: title.trim(),
+      title: trimmedTitle,
       createdAt: idea.createdAt || new Date().toISOString(),
     };
+
+    let savedIdeas: DessertIdea[] = [];
+    try {
+      const storedIdeas = localStorage.getItem(SAVED_IDEAS_KEY);
+      savedIdeas = storedIdeas
+        ? (JSON.parse(storedIdeas) as DessertIdea[])
+        : [];
+    } catch (error) {
+      savedIdeas = [];
+    }
+    const alreadySaved = savedIdeas.some(
+      (savedItem) => savedItem.id === savedIdea.id,
+    );
   };
 
   if (!idea) {
