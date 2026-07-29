@@ -57,39 +57,76 @@ export default function ResultPage() {
     const alreadySaved = savedIdeas.some(
       (savedItem) => savedItem.id === savedIdea.id,
     );
+    const updateIdeas = alreadySaved
+      ? savedIdeas.map((savedItem) =>
+          savedItem.id === savedIdea.id ? savedIdea : savedItem,
+        )
+      : [...savedIdeas, savedIdea];
+
+    localStorage.setItem(SAVED_IDEAS_KEY, JSON.stringify(updateIdeas));
+    localStorage.setItem(CURRENT_IDEA_KEY, JSON.stringify(savedIdea));
+
+    setSaveMessage("アイデアを保存しました。");
+  };
+
+  const handleDoNotSave = () => {
+    localStorage.removeItem(CURRENT_IDEA_KEY);
+    router.push("/idea-builder");
   };
 
   if (!idea) {
-    return (
-      <main className={styles.page}>
-        <div className={styles.empty}>
-          <h1 className={styles.emptyTitle}>結果がありません。</h1>
-
-          <p className={styles.emptyText}>
-            デザートアイデアを作成してから結果を表示してください。
-          </p>
-
-          <button
-            className={styles.primaryButton}
-            type="button"
-            onClick={() => router.push("/idea-builder")}
-          ></button>
-        </div>
-      </main>
-    );
   }
-
   return (
-    <main>
-      <h1>デザートアイデア結果</h1>
-      {idea.title || "タイトル未設定"}
+    <main className={styles.page}>
+      <section className={styles.resultCard}>
+        <header className={styles.header}>
+          <p className={styles.eyebrow}>DESSERT IDEA</p>
+          <h1 className={styles.heading}>デザートアイデア結果</h1>
+          <p className={styles.description}>
+            タイトルを付けて、作成したアイデアを保存できます。
+          </p>
+        </header>
 
-      <p>タイプ：{idea.dessertTypes.join("、")}</p>
-      <p>フレーバー：{idea.flavors.join("、")}</p>
-      <p>形：{idea.shapes.join("、")}</p>
-      <p>食感：{idea.textures.join("、")}</p>
-      <p>温度：{idea.temperatures.join("、")}</p>
-      <p>飾り：{idea.decorations.join("、")}</p>
+        <div className={styles.titleField}>
+          <label className={styles.inputLabel} htmlFor="idea-title">
+            アイデアタイトル
+          </label>
+
+          <input
+            className={styles.titleInput}
+            id="idea-title"
+            value={title}
+            type="text"
+            onChange={(e) => {
+              setTitle(e.target.value);
+              setSaveMessage("");
+            }}
+            placeholder="例：桃とアールグレイの冷製タルト"
+          />
+        </div>
+
+        <div className={styles.ideaGrid}></div>
+
+        {saveMessage && <p className={styles.saveMessage}>{saveMessage}</p>}
+
+        <div className={styles.actions}>
+          <button
+            className={styles.secondaryButton}
+            type="button"
+            onClick={handleDoNotSave}
+          >
+            保存しない
+          </button>
+        </div>
+
+        <button
+          className={styles.primaryButton}
+          type="button"
+          onClick={handleSave}
+        >
+          保存する
+        </button>
+      </section>
     </main>
   );
 }
