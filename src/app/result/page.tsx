@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./result.module.scss";
 import { DessertIdea } from "@/types/dessert";
 import { useRouter } from "next/navigation";
+import ResultItem from "@/components/result/ResultItem";
 
 const SAVED_IDEAS_KEY = "dessert-ideas";
 const CURRENT_IDEA_KEY = "currentIdea";
@@ -75,6 +76,11 @@ export default function ResultPage() {
   };
 
   if (!idea) {
+    return (
+      <main className={styles.page}>
+        <p>結果がありません。</p>
+      </main>
+    );
   }
   return (
     <main className={styles.page}>
@@ -105,7 +111,14 @@ export default function ResultPage() {
           />
         </div>
 
-        <div className={styles.ideaGrid}></div>
+        <div className={styles.ideaGrid}>
+          <ResultItem label="タイプ" values={idea.dessertTypes} />
+          <ResultItem label="フレーバー" values={idea.flavors} />
+          <ResultItem label="形" values={idea.shapes} />
+          <ResultItem label="食感" values={idea.textures} />
+          <ResultItem label="温度" values={idea.temperatures} />
+          <ResultItem label="飾り" values={idea.decorations} />
+        </div>
 
         {saveMessage && <p className={styles.saveMessage}>{saveMessage}</p>}
 

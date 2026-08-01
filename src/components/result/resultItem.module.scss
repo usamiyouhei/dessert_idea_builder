@@ -1,0 +1,45 @@
+$light-gray2: #faf8f5;
+
+.resultItem {
+  min-height: 120px;
+  padding: 10px;
+  background-color: $light-gray2;
+  border: 1px solid #e3ddd5;
+  border-radius: 16px;
+}
+
+.itemLabel {
+  margin: 0 0 14px;
+  color: #766d65;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 12px;
+  color: #514439;
+  font-size: 14px;
+  background-color: #ece5dc;
+  border-radius: 999px;
+}
+
+.emptyValue {
+  color: #aaa29a;
+  font-size: 14px;
+}
+
+.saveMessage {
+  margin: 22px 0 0;
+  color: #80654e;
+  font-size: 14px;
+  text-align: right;
+}
