@@ -130,15 +130,14 @@ export default function ResultPage() {
           >
             保存しない
           </button>
+          <button
+            className={styles.primaryButton}
+            type="button"
+            onClick={handleSave}
+          >
+            保存する
+          </button>
         </div>
-
-        <button
-          className={styles.primaryButton}
-          type="button"
-          onClick={handleSave}
-        >
-          保存する
-        </button>
       </section>
     </main>
   );
