@@ -88,10 +88,20 @@ $dark-gray: #777069;
 }
 
 .saveMessage {
-  margin: 22px 0 0;
+  margin: 0;
   color: #80654e;
   font-size: 14px;
-  text-align: right;
+  font-weight: 600;
+}
+
+.savedArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #e4ded7;
 }
 
 .actions {
