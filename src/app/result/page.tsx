@@ -9,6 +9,7 @@ const SAVED_IDEAS_KEY = "dessert-ideas";
 const CURRENT_IDEA_KEY = "currentIdea";
 
 export default function ResultPage() {
+  const [isSaved, setIsSaved] = useState(false);
   const router = useRouter();
 
   const [idea] = useState<DessertIdea | null>(() => {
@@ -67,7 +68,8 @@ export default function ResultPage() {
     localStorage.setItem(SAVED_IDEAS_KEY, JSON.stringify(updateIdeas));
     localStorage.setItem(CURRENT_IDEA_KEY, JSON.stringify(savedIdea));
 
-    setSaveMessage("アイデアを保存しました。");
+    // setSaveMessage("アイデアを保存しました。");
+    setIsSaved(true);
   };
 
   const handleDoNotSave = () => {
@@ -122,22 +124,36 @@ export default function ResultPage() {
 
         {saveMessage && <p className={styles.saveMessage}>{saveMessage}</p>}
 
-        <div className={styles.actions}>
-          <button
-            className={styles.secondaryButton}
-            type="button"
-            onClick={handleDoNotSave}
-          >
-            保存しない
-          </button>
-          <button
-            className={styles.primaryButton}
-            type="button"
-            onClick={handleSave}
-          >
-            保存する
-          </button>
-        </div>
+        {isSaved ? (
+          <div className={styles.savedArea}>
+            <p className={styles.saveMessage}>アイデアを保存しました。</p>
+
+            <button
+              className={styles.primaryButton}
+              type="button"
+              onClick={() => router.push("/idea-builder")}
+            >
+              最初の画面に戻る
+            </button>
+          </div>
+        ) : (
+          <div className={styles.actions}>
+            <button
+              className={styles.secondaryButton}
+              type="button"
+              onClick={handleDoNotSave}
+            >
+              保存しない
+            </button>
+            <button
+              className={styles.primaryButton}
+              type="button"
+              onClick={handleSave}
+            >
+              保存する
+            </button>
+          </div>
+        )}
       </section>
     </main>
   );
