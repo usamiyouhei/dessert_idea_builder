@@ -4,9 +4,28 @@ import styles from "./result.module.scss";
 import { DessertIdea } from "@/types/dessert";
 import { useRouter } from "next/navigation";
 import ResultItem from "@/components/result/ResultItem";
+import { dessertTypes } from "@/data/dessertTypes";
+import { flavors } from "@/data/flavors";
+import { shapes } from "@/data/shapes";
+import { textures } from "@/data/textures";
+import { temperatures } from "@/data/temperatures";
+import { decorations } from "@/data/decorations";
 
 const SAVED_IDEAS_KEY = "dessert-ideas";
 const CURRENT_IDEA_KEY = "currentIdea";
+
+type Option = {
+  value: string;
+  label: string;
+};
+
+const getLabels = (values: string[], options: Option[]) => {
+  return values.map((value) => {
+    const option = options.find((item) => item.value === value);
+
+    return option?.label ?? value;
+  });
+};
 
 export default function ResultPage() {
   const [isSaved, setIsSaved] = useState(false);
@@ -114,12 +133,27 @@ export default function ResultPage() {
         </div>
 
         <div className={styles.ideaGrid}>
-          <ResultItem label="タイプ" values={idea.dessertTypes} />
-          <ResultItem label="フレーバー" values={idea.flavors} />
-          <ResultItem label="形" values={idea.shapes} />
-          <ResultItem label="食感" values={idea.textures} />
-          <ResultItem label="温度" values={idea.temperatures} />
-          <ResultItem label="飾り" values={idea.decorations} />
+          <ResultItem
+            label="タイプ"
+            values={getLabels(idea.dessertTypes, dessertTypes)}
+          />
+          <ResultItem
+            label="フレーバー"
+            values={getLabels(idea.flavors, flavors)}
+          />
+          <ResultItem label="形" values={getLabels(idea.shapes, shapes)} />
+          <ResultItem
+            label="食感"
+            values={getLabels(idea.textures, textures)}
+          />
+          <ResultItem
+            label="温度"
+            values={getLabels(idea.temperatures, temperatures)}
+          />
+          <ResultItem
+            label="飾り"
+            values={getLabels(idea.decorations, decorations)}
+          />
         </div>
 
         {saveMessage && <p className={styles.saveMessage}>{saveMessage}</p>}
