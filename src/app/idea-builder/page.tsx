@@ -70,6 +70,16 @@ export default function HomePage() {
     setStep((prev) => Math.min(prev + 1, 5));
   };
 
+  const handleNewIdea = () => {
+    setStep(0);
+    setSelectedDessertTypes([]);
+    setSelectedFlavors([]);
+    setSelectedShapes([]);
+    setSelectedTextures([]);
+    setSelectedTemperatures([]);
+    setSelectedDecorations([]);
+  };
+
   const renderStep = () => {
     switch (step) {
       case 0:
@@ -144,7 +154,13 @@ export default function HomePage() {
   };
 
   return (
-    <main>
+    <AppShell
+      title="Dessert Idea Builder"
+      description="6つのステップで、理想のデザートアイデアを作成します"
+      currentStep={step + 1}
+      totalSteps={6}
+      onNewIdea={handleNewIdea}
+    >
       <BuilderView
         step={step}
         onBack={handleBack}
@@ -153,6 +169,6 @@ export default function HomePage() {
       >
         {renderStep()}
       </BuilderView>
-    </main>
+    </AppShell>
   );
 }
