@@ -1,0 +1,55 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  min-height: 92px;
+  padding: 18px 32px;
+
+  background-color: rgba(251, 249, 245, 0.94);
+  border-bottom: 1px solid #e3dcd2;
+  backdrop-filter: blur(14px);
+}
+
+.titleArea {
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  color: #312a25;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(21px, 2vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.description {
+  margin: 6px 0 0;
+  color: #887c71;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.stepArea {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background-color: #f4ede4;
+  border: 1px solid #e1d4c1;
+  border-radius: 999px;
+}
+
+.stepLabel {
+  color: #9d8b77;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}

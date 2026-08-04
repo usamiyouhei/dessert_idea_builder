@@ -20,12 +20,13 @@ export default function Header({
         <h1 className={styles.title}>{title}</h1>
         {description && <p className={styles.description}>{description}</p>}
       </div>
-
-      {currentStep !== undefined && totalSteps !== undefined && (
-        <span>
-          Step {currentStep + 1} / {totalSteps}
-        </span>
-      )}
+      <div className={styles.stepArea}>
+        {currentStep !== undefined && totalSteps !== undefined && (
+          <span className={styles.stepLabel}>
+            Step {currentStep + 1} / {totalSteps}
+          </span>
+        )}
+      </div>
     </header>
   );
 }
