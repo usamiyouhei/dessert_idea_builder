@@ -8,11 +8,127 @@
   display: flex;
   flex-direction: column;
 
-  width: 190px;
+  width: 220px;
   min-height: 100vh;
-  padding: 32px 24px;
+  padding: 28px 18px 22px;
 
   color: #f7f3ed;
-  background-color: #292521;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #fbf8f3;
+  border-right: 1px solid #e4ddd3;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 24px;
+  border-bottom: 1px solid #e7e0d7;
+}
+
+.logoIcon {
+  display: grid;
+  place-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  color: #9c6f2f;
+  background-color: #f1e6d4;
+  border: 1px solid #dcc9a9;
+  border-radius: 12px;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.logoText {
+  min-width: 0;
+}
+
+.logoTitle {
+  margin: 0;
+  color: #342c26;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.logoSubtitle {
+  margin: 4px 0 0;
+  color: #9a8d81;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.navigationLabel {
+  margin: 0 0 6px 12px;
+  color: #ad9f92;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.navigationItem {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  width: 100%;
+  padding: 12px 14px;
+
+  color: #655c54;
+  font: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+
+  svg {
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    color: #8a7b6e;
+  }
+
+  &:hover {
+    color: #3d332b;
+    background-color: #f1e8dc;
+    transform: translateX(2px);
+    svg {
+      color: #a67634;
+    }
+  }
+}
+
+.active {
+  color: #3b3027;
+  background-color: #eee4d5;
+  border-color: #dfcfb6;
+  svg {
+    color: #a67634;
+  }
 }
