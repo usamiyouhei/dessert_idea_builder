@@ -22,7 +22,7 @@ export default function AppShell({
 }: AppShellProps) {
   return (
     <div className={styles.appShell}>
-      <Sidebar onNewidea={onNewIdea} />
+      <Sidebar onNewIdea={onNewIdea} />
 
       <div className={styles.mainArea}>
         <Header

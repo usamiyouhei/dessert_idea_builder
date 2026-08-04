@@ -5,10 +5,10 @@ import styles from "./Sidebar.module.scss";
 import { useRouter } from "next/navigation";
 import { Bookmark, Plus, Sparkles } from "lucide-react";
 type SidebarProps = {
-  onNewidea: () => void;
+  onNewIdea: () => void;
 };
 
-export default function Sidebar({ onNewidea }: SidebarProps) {
+export default function Sidebar({ onNewIdea }: SidebarProps) {
   const router = useRouter();
   return (
     <aside className={styles.sidebar}>
