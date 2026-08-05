@@ -2,22 +2,22 @@ import styles from "./StepProgress.module.scss";
 
 type StepProgressProps = {
   currentStep: number;
-  totalStep: number;
+  totalSteps: number;
 };
 
 export default function StepProgress({
   currentStep,
-  totalStep,
+  totalSteps,
 }: StepProgressProps) {
   return (
     <div className={styles.progressArea}>
       <p className={styles.progressText}>
-        Step {currentStep + 1} / {totalStep}
+        Step {currentStep + 1} / {totalSteps}
       </p>
       <progress
         className={styles.progress}
         value={currentStep + 1}
-        max={totalStep}
+        max={totalSteps}
       />
     </div>
   );

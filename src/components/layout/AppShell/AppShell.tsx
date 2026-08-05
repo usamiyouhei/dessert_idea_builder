@@ -32,7 +32,7 @@ export default function AppShell({
           totalSteps={totalSteps}
         />
 
-        <main className={styles.main}>{children}</main>
+        <main className={styles.mainContent}>{children}</main>
       </div>
     </div>
   );

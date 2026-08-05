@@ -6,14 +6,6 @@ import StepNavigation from "./StepNavigation/StepNavigation";
 type BuilderViewProps = {
   step: number;
   children: ReactNode;
-
-  // selectedDessertTypes: string[];
-  // selectedFlavors: string[];
-  // selectedShapes: string[];
-  // selectedTextures: string[];
-  // selectedTemperatures: string[];
-  // selectedDecorations: string[];
-
   onBack: () => void;
   onNext: () => void;
   onShowResult: () => void;
@@ -22,12 +14,6 @@ type BuilderViewProps = {
 export default function BuilderView({
   step,
   children,
-  // selectedDessertTypes,
-  // selectedFlavors,
-  // selectedShapes,
-  // selectedTextures,
-  // selectedTemperatures,
-  // selectedDecorations,
   onBack,
   onNext,
   onShowResult,
@@ -35,12 +21,12 @@ export default function BuilderView({
   const totalSteps = 6;
   return (
     <section className={styles.builderView}>
-      <StepProgress currentStep={step} totalStep={totalSteps} />
+      <StepProgress currentStep={step} totalSteps={totalSteps} />
 
       <div className={styles.card}>
         <div className={styles.content}>{children}</div>
 
-        <div className={styles.actions}>
+        <div className={styles.navigation}>
           <StepNavigation
             currentStep={step}
             totalSteps={totalSteps}
