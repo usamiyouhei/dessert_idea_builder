@@ -157,7 +157,7 @@ export default function HomePage() {
     <AppShell
       title="Dessert Idea Builder"
       description="6つのステップで、理想のデザートアイデアを作成します"
-      currentStep={step + 1}
+      currentStep={step}
       totalSteps={6}
       onNewIdea={handleNewIdea}
     >
