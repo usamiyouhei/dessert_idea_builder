@@ -1,3 +1,11 @@
+import { LucideIcon } from "lucide-react";
+
+export type DessertOption = {
+  value: string;
+  label: string;
+  icon?: LucideIcon;
+};
+
 export type DessertIdea = {
   id: string;
   dessertTypes: string[];

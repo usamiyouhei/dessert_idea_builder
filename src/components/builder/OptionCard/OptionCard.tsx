@@ -1,12 +1,15 @@
+import type { LucideIcon } from "lucide-react";
 import styles from "./OptionCard.module.scss";
 type OptionCardProps = {
   label: string;
+  icon: LucideIcon;
   isSelected: boolean;
   onClick: () => void;
 };
 
 export default function OptionCard({
   label,
+  icon: Icon,
   isSelected,
   onClick,
 }: OptionCardProps) {
@@ -17,7 +20,10 @@ export default function OptionCard({
       aria-pressed={isSelected}
       onClick={onClick}
     >
-      <span>{label}</span>
+      <div className={styles.left}>
+        <Icon className={styles.icon} aria-hidden="true" />
+        <span>{label}</span>
+      </div>
       <span className={styles.check} aria-hidden="true">
         {isSelected ? "✓" : ""}
       </span>
