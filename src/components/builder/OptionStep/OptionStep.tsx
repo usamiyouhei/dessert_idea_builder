@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import type { DessertOption } from "@/data/dessertTypes";
 import OptionCard from "../OptionCard/OptionCard";
 import styles from "./OptionStep.module.scss";
+import { DessertOption } from "@/types/dessert";
 
 type OptionStepProps = {
   stepLabel: string;
@@ -33,6 +33,7 @@ export default function OptionStep({
           <OptionCard
             key={option.value}
             label={option.label}
+            icon={option.icon}
             isSelected={selectedValues.includes(option.value)}
             onClick={() => onToggle(option.value)}
           />
