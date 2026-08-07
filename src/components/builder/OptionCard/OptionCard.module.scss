@@ -32,11 +32,26 @@
   outline-offset: 3px;
 }
 
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  color: #9c6f2f;
+}
+
 .selected {
   color: #fff;
   border-color: #3f3934;
   background-color: #3f3934;
   box-shadow: 0 8px 20px rgb(40 35 30 / 18%);
+  .icon {
+    color: #7f571f;
+  }
 }
 
 .selected:hover {
