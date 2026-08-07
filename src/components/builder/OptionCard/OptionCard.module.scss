@@ -38,10 +38,17 @@
   gap: 14px;
 }
 
+// .icon {
+//   width: 22px;
+//   height: 22px;
+//   color: #9c6f2f;
+// }
+
 .icon {
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   color: #9c6f2f;
+  flex-shrink: 0;
 }
 
 .selected {

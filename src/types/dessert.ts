@@ -1,9 +1,12 @@
 import { LucideIcon } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
+
+export type DessertIcon = LucideIcon | ComponentType<SVGProps<SVGSVGElement>>;
 
 export type DessertOption = {
   value: string;
   label: string;
-  icon: LucideIcon;
+  icon: DessertIcon;
 };
 
 export type DessertIdea = {
