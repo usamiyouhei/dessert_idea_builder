@@ -1,8 +1,11 @@
 import type { LucideIcon } from "lucide-react";
 import styles from "./OptionCard.module.scss";
+import { ComponentType, ReactNode, SVGProps } from "react";
+
+type IconComponent = LucideIcon | ComponentType<SVGProps<SVGSVGElement>>;
 type OptionCardProps = {
   label: string;
-  icon: LucideIcon;
+  icon: IconComponent;
   isSelected: boolean;
   onClick: () => void;
 };

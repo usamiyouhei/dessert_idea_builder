@@ -1,11 +1,7 @@
+import MousseIcon from "@/components/icons/MousseIcon";
+import TartIcon from "@/components/icons/TartIcon";
 import { DessertOption } from "@/types/dessert";
-import {
-  CakeSlice,
-  CircleDot,
-  GlassWater,
-  IceCreamBowl,
-  Layers3,
-} from "lucide-react";
+import { CakeSlice, IceCreamBowl, Layers3 } from "lucide-react";
 
 export const dessertTypes: DessertOption[] = [
   {
@@ -16,12 +12,12 @@ export const dessertTypes: DessertOption[] = [
   {
     value: "tart",
     label: "タルト",
-    icon: CircleDot,
+    icon: TartIcon,
   },
   {
     value: "mousse",
     label: "ムース",
-    icon: GlassWater,
+    icon: MousseIcon,
   },
   {
     value: "parfait",

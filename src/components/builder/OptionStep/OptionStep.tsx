@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import OptionCard from "../OptionCard/OptionCard";
 import styles from "./OptionStep.module.scss";
 import { DessertOption } from "@/types/dessert";
+import { Icon } from "lucide-react";
 
 type OptionStepProps = {
   stepLabel: string;
