@@ -1,5 +1,4 @@
-import MousseIcon from "@/components/icons/MousseIcon";
-import TartIcon from "@/components/icons/TartIcon";
+import { MousseIcon, TartIcon } from "@/components/icons";
 import { DessertOption } from "@/types/dessert";
 import { CakeSlice, IceCreamBowl, Layers3 } from "lucide-react";
 

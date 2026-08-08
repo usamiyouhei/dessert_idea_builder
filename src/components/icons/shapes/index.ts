@@ -1,0 +1,10 @@
+export { default as RoundIcon } from "./RoundIcon";
+export { default as SquareIcon } from "./SquareIcon";
+export { default as LayeredIcon } from "./LayeredIcon";
+export { default as SphereIcon } from "./SphereIcon";
+export { default as ConeIcon } from "./ConeIcon";
+export { default as OvalIcon } from "./OvalIcon";
+export { default as PyramidIcon } from "./PyramidIcon";
+export { default as LeafIcon } from "./LeafIcon";
+export { default as HexagonIcon } from "./HexagonIcon";
+export { default as TeardropIcon } from "./TeardropIcon";

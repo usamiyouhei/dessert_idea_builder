@@ -1,10 +1,12 @@
-import CaramelIcon from "@/components/icons/CaramelIcon";
-import ChocolateIcon from "@/components/icons/ChocolateIcon";
-import CitrusIcon from "@/components/icons/CitrusIcon";
-import CoffeeIcon from "@/components/icons/CoffeeIcon";
-import MatchaIcon from "@/components/icons/MatchaIcon";
-import StrawberryIcon from "@/components/icons/StrawberryIcon";
-import VanillaIcon from "@/components/icons/VanillaIcon";
+import {
+  StrawberryIcon,
+  ChocolateIcon,
+  MatchaIcon,
+  CitrusIcon,
+  VanillaIcon,
+  CoffeeIcon,
+  CaramelIcon,
+} from "@/components/icons/flavors";
 import { DessertOption } from "@/types/dessert";
 
 export const flavors: DessertOption[] = [
