@@ -1,0 +1,9 @@
+export { default as CrispyIcon } from "./CrispyIcon";
+export { default as FluffyIcon } from "./FluffyIcon";
+export { default as CreamyIcon } from "./CreamyIcon";
+export { default as ChewyIcon } from "./ChewyIcon";
+export { default as CrunchyIcon } from "./CrunchyIcon";
+export { default as JigglyIcon } from "./JigglyIcon";
+export { default as StickyIcon } from "./StickyIcon";
+export { default as CracklyIcon } from "./CracklyIcon";
+export { default as MoistIcon } from "./MoistIcon";
