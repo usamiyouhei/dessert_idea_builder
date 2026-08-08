@@ -1,4 +1,4 @@
-import type { DessertOption } from "./dessertTypes";
+import { DessertOption } from "@/types/dessert";
 
 export const temperatures: DessertOption[] = [
   {

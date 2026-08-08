@@ -1,7 +1,4 @@
-export type DessertOption = {
-  value: string;
-  label: string;
-};
+import { DessertOption } from "@/types/dessert";
 
 export const decorations: DessertOption[] = [
   {
