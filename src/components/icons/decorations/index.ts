@@ -1,0 +1,13 @@
+export { default as ChocolatePartsIcon } from "./ChocolatePartsIcon";
+export { default as TuileIcon } from "./TuileIcon";
+export { default as CandyIcon } from "./CandyIcon";
+export { default as SugarArtIcon } from "./SugarArtIcon";
+export { default as PipedCreamIcon } from "./PipedCreamIcon";
+export { default as FruitsIcon } from "./FruitsIcon";
+export { default as NappageIcon } from "./NappageIcon";
+export { default as BerriesIcon } from "./BerriesIcon";
+export { default as MintIcon } from "./MintIcon";
+export { default as GoldLeafIcon } from "./GoldLeafIcon";
+export { default as NutsIcon } from "./NutsIcon";
+export { default as EdibleFlowersIcon } from "./EdibleFlowersIcon";
+export { default as ChocolateDecorationIcon } from "./ChocolateDecorationIcon";
