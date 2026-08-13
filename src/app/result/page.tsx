@@ -10,9 +10,7 @@ import { shapes } from "@/data/shapes";
 import { textures } from "@/data/textures";
 import { temperatures } from "@/data/temperatures";
 import { decorations } from "@/data/decorations";
-
-const SAVED_IDEAS_KEY = "dessert-ideas";
-const CURRENT_IDEA_KEY = "currentIdea";
+import { CURRENT_IDEA_KEY, SAVED_IDEAS_KEY } from "@/constants/storage";
 
 type Option = {
   value: string;
