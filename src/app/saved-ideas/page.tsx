@@ -1,7 +1,9 @@
 "use client";
+
 import { SAVED_IDEAS_KEY } from "@/constants/storage";
 import { DessertIdea } from "@/types/dessert";
 import React, { useEffect, useState } from "react";
+import styles from "./saved-ideas.module.scss";
 
 export default function SavedIdeasPage() {
   const [ideas, setIdeas] = useState<DessertIdea[]>(() => {
@@ -14,19 +16,28 @@ export default function SavedIdeasPage() {
   });
 
   return (
-    <div>
-      <h1>保存済みアイデア</h1>
+    <main className={styles.saved}>
+      <div className={styles.heading}>
+        <p className={styles.eyebrow}>SAVED IDEAS</p>
+        <h1 className={styles.title}>保存済みアイデア</h1>
 
-      {ideas.length === 0 ? (
-        <p>保存されたアイデアはありません。</p>
-      ) : (
-        ideas.map((idea) => (
-          <div key={idea.id}>
-            <h2>{idea.title}</h2>
-            <p>{idea.concept}</p>
+        <p className={styles.description}>
+          作成したデザートアイデアを保存できます。
+        </p>
+
+        {ideas.length === 0 ? (
+          <div className={styles.empty}>
+            <p>保存されたアイデアはありません。</p>
           </div>
-        ))
-      )}
-    </div>
+        ) : (
+          ideas.map((idea) => (
+            <div key={idea.id}>
+              <h2>{idea.title}</h2>
+              <p>{idea.concept}</p>
+            </div>
+          ))
+        )}
+      </div>
+    </main>
   );
 }

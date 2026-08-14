@@ -38,7 +38,7 @@ export default function Sidebar({ onNewIdea }: SidebarProps) {
         <button
           type="button"
           className={styles.navigationItem}
-          onClick={() => router.push}
+          onClick={() => router.push("/saved-ideas")}
         >
           <Bookmark size={19} strokeWidth={1.8} />
           <span>保存済みアイデア</span>
